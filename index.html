@@ -1,9 +1,257 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors and Specificity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-  <h1>Jess Williams</h1>
-  <p>Welcome to my website!</p>
-  <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif" />
+    <h1 class="main-title">CSS Selectors & Specificity <br>Cheat Sheet<br></h1>
+    <section id="group">
+    <h2 class="title">Basic Selectors</h2>
+    <table class="tbl">
+      <thead>
+        <tr class="top-row">
+          <th class="th">Selector</th>
+          <th class="th">Example</th>
+          <th class="th">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="content-row">
+          <td>Universal (*)</td>
+          <td>* { margin: 0; }</td>
+          <td>Targets all elements.</td>
+        </tr>
+        <tr class="content-row">
+          <td>Element (Type)</td>
+          <td>p { color: red; }</td>
+          <td>Targets all &lt;p&gt; elements.</td>
+        </tr>
+        <tr class="content-row">
+          <td>Class (.)</td>
+          <td>.box { padding: 10px; }</td>
+          <td>Targets elements with class="box".</td>
+        </tr>
+        <tr class="content-row">
+          <td>ID (#)</td>
+          <td>#main { width: 100%; }</td>
+          <td>Targets an element with id="main".</td>
+        </tr>
+      </tbody>
+    </table>
+    </section>
+    <section id="group">
+       <h2 class="title">Grouping & Combining Selectors</h2>
+    <table class="tbl">
+      <thead>
+        <tr class="top-row">
+          <th class="th">Selector</th>
+          <th class="th">Example</th>
+          <th class="th">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="content-row">
+          <td>Grouping (A, B)</td>
+          <td>h1, h2, p { color: blue; }</td>
+          <td>Targets multiple elements.</td>
+        </tr>
+         <tr class="content-row">
+          <td>Descendant (A B)</td>
+          <td>div p { font-size: 16px; }</td>
+          <td>Targets &lt;p&gt; inside &lt;div&gt;.</td>
+        </tr>
+         <tr class="content-row">
+          <td>Child (A &gt; B)</td>
+          <td>nav &gt; ul { list-style: none; }</td>
+          <td>Targets direct children only.</td>
+        </tr>
+         <tr class="content-row">
+          <td>Adjacent Sibling (A + B)</td>
+          <td>h1 + p { margin-top: 10px; }</td>
+          <td>Targets the first &lt;p&gt; right after &lt;h1&gt;.</td>
+        </tr>
+         <tr class="content-row">
+          <td>General Sibling (A ~ B)</td>
+          <td>h1 ~ p { color: gray; }</td>
+          <td>Targets all &lt;p&gt; siblings after &lt;h1&gt;.</td>
+        </tr>
+      </tbody>
+    </table>
+    </section>
+    <section id="group">
+    <h2 class="title">Attribute Selectors</h2>
+    <table class="tbl">
+      <thead>
+        <tr class="top-row">
+          <th class="th">Selector</th>
+          <th class="th">Example</th>
+          <th class="th">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="content-row">
+          <td>Exists ([attr])</td>
+          <td>[disabled] { opacity: 0.5; }</td>
+          <td>Targets elements with the attribute.</td>
+        </tr>
+        <tr class="content-row">
+          <td>Exact Match ([attr="value"])</td>
+          <td>[type="text"] { color: blue; }</td>
+          <td>Targets exact attribute values.</td>
+        </tr>
+        <tr class="content-row">
+          <td>Contains ([attr*="value"])</td>
+          <td>[class*="btn"] { padding: 5px; }</td>
+          <td>Targets attributes containing "btn".</td>
+        </tr>
+        <tr class="content-row">
+          <td>Starts With ([attr^="value"])</td>
+          <td>[href^="https"] { color: green; }</td>
+          <td>Targets attributes starting with "https".</td>
+        </tr>
+        <tr class="content-row">
+          <td>Ends With ([attr$="value"])</td>
+          <td>[src$=".jpg"] { border: 1px solid; }</td>
+          <td>Targets attributes ending with ".jpg".</td>
+        </tr>
+      </tbody>
+    </table>
+    </section>
+    <section id="group">
+    <h2 class="title">Pseudo-Classes</h2>
+    <table class="tbl">
+      <thead>
+        <tr class="top-row">
+          <th class="th">Selector</th>
+          <th class="th">Example</th>
+          <th class="th">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="content-row">
+          <td>:hover</td>
+          <td>a:hover { color: red; }</td>
+          <td>When hovered over.</td>
+        </tr>
+        <tr class="content-row">
+          <td>:focus</td>
+          <td>input:focus { border: 2px solid blue; }</td>
+          <td>When focused (e.g., input field).</td>
+        </tr>
+        <tr class="content-row">
+          <td>:first-child</td>
+          <td>p:first-child { font-weight: bold; }</td>
+          <td>First child of parent.</td>
+        </tr>
+        <tr class="content-row">
+          <td>:last-child</td>
+          <td>p:last-child { font-style: italic; }</td>
+          <td>Last child of parent.</td>
+        </tr>
+        <tr class="content-row">
+          <td>:nth-child(n)</td>
+          <td>li:nth-child(2) { color: red; }</td>
+          <td>Targets the nth child.</td>
+        </tr>
+        <tr class="content-row">
+          <td>:nth-of-type(n)</td>
+          <td>p:nth-of-type(2) { color: red; }</td>
+          <td>Targets the nth of its type.</td>
+        </tr>
+        <tr class="content-row">
+          <td>:not(selector)</td>
+          <td>button:not(.disabled) { background: blue; }</td>
+          <td>Excludes elements that match the selector.</td>
+        </tr>
+      </tbody>
+    </table>
+    </section>
+    <section id="group">
+    <h2 class="title">Pseudo-Elements</h2>
+    <table class="tbl">
+      <thead>
+        <tr class="top-row">
+          <th class="th">Selector</th>
+          <th class="th">Example</th>
+          <th class="th">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+         <tr class="content-row">
+          <td>::before</td>
+          <td>p::before { content: "★"; }</td>
+          <td>Adds content before an element.</td>
+        </tr>
+        <tr class="content-row">
+          <td>::after</td>
+          <td>p::after { content: "✔"; }</td>
+          <td>Adds content after an element.</td>
+        </tr>
+        <tr class="content-row">
+          <td>::first-letter</td>
+          <td>p::first-letter { font-size: 2rem; }</td>
+          <td>Styles the first letter of a paragraph.</td>
+        </tr>
+        <tr class="content-row">
+          <td>::first-line</td>
+          <td>p::first-line { font-weight: bold; }</td>
+          <td>Styles the first line of a paragraph.</td>
+        </tr>
+        <tr class="content-row">
+          <td>::selection</td>
+          <td>::selection { background: yellow; }</td>
+          <td>Styles text when highlighted.</td>
+        </tr>
+      </tbody>
+    </table>
+    </section>
+    <section id="group">
+    <h2 class="title">Advanced (Combinators & Special Selectors)</h2>
+    <table class="tbl">
+      <thead>
+        <tr class="top-row">
+          <th class="th">Selector</th>
+          <th class="th">Example</th>
+          <th class="th">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="content-row">
+          <td>:root</td>
+          <td>:root { --main-color: blue; }</td>
+          <td>Targets the root (&lt;html&gt;) for CSS variables.</td>
+        </tr>
+        <tr class="content-row">
+          <td>:empty</td>
+          <td>div:empty { display: none; }</td>
+          <td>Targets elements with no content.</td>
+        </tr>
+        <tr class="content-row">
+          <td>:checked</td>
+          <td>input:checked { background: green; }</td>
+          <td>Targets checked checkboxes/radios.</td>
+        </tr>
+        <tr class="content-row">
+          <td>:disabled</td>
+          <td>button:disabled { opacity: 0.5; }</td>
+          <td>Targets disabled elements.</td>
+        </tr>
+      </tbody>
+    </table>
+    </section>
+    <section id="group" class="footer">
+    <h2 class="title">CSS Specificity & Importance</h2>
+    <ul>
+      <li>Inline styles (e.g., &lt;p style="color:red;"&gt;) have the highest priority.</li>
+      <li>ID selectors (#id) are stronger than class selectors (.class).</li>
+      <li>Using !important (e.g., color: red !important;) overrides other rules.</li>
+    </ul>
+    </section>
 </body>
-
 </html>
